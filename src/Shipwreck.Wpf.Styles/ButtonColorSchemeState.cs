@@ -34,13 +34,13 @@ namespace Shipwreck.Wpf.Styles
             return null;
         }
 
-        internal static ButtonColorSchemeState? Create(int? foreground = null, int? background = null, int? borderBrush = null)
+        internal static ButtonColorSchemeState? Create(uint? foreground = null, uint? background = null, uint? borderBrush = null)
         {
-            static SolidColorBrush? getBrush(int? color)
+            static SolidColorBrush? getBrush(uint? color)
             {
                 if (color != null)
                 {
-                    var b = new SolidColorBrush(Color.FromRgb((byte)(color.Value >> 16), (byte)(color.Value >> 8), (byte)color.Value));
+                    var b = new SolidColorBrush(Color.FromArgb((byte)(color.Value >> 24), (byte)(color.Value >> 16), (byte)(color.Value >> 8), (byte)color.Value));
                     b.Freeze();
                     return b;
                 }

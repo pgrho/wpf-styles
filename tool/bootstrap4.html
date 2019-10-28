@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap4 Property Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+</head>
+<body>
+    <pre id="output"></pre>
+    <script>
+        window.onload = function () {
+
+            function getRule(selector) {
+                for (let i = 0; i < document.styleSheets.length; i++) {
+                    const ss = document.styleSheets[i];
+                    if (ss.href.indexOf('bootstrap')) {
+                        for (let j = 0; j < ss.cssRules.length; j++) {
+                            const r = ss.cssRules[j];
+                            if (r.selectorText == selector) {
+                                return r;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+
+            function cssColorToInt32(color) {
+                if (/\((\d+), (\d+), (\d+)/.test(color)) {
+                    const r = parseInt(RegExp.$1, 10);
+                    const g = parseInt(RegExp.$2, 10);
+                    const b = parseInt(RegExp.$3, 10);
+                    const hex = (((r + 256) * 256 + g) * 256 + b).toString(16);
+                    return hex.substr(-6);
+                }
+                return '000000';
+            }
+            let cs = '';
+            const prefixes = ['', 'Outline'];
+            const properties = ['MouseOver', 'Pressed', 'Disabled', 'Default'];
+
+
+            for (var t of ['Primary', 'Secondary', 'Success', 'Danger', 'Warning', 'Light', 'Dark']) {
+                for (var p of prefixes) {
+                    const clrName = 'Bootstrap' + p + t;
+                    const css = 'btn btn-' + (p ? p.toLowerCase() + '-' : '') + t.toLowerCase();
+
+                    const btn = document.createElement('button');
+                    btn.className = css;
+
+                    const active = document.createElement('button');
+                    active.className = css + ' active';
+
+                    const disabled = document.createElement('button');
+                    disabled.className = css + ' disabled';
+
+                    document.body.append(active);
+                    document.body.append(disabled);
+                    document.body.append(btn);
+                    const btnStyle = getComputedStyle(btn);
+
+                    const hover = getRule('.btn-' + (p ? p.toLowerCase() + '-' : '') + t.toLowerCase() + ':hover').style;
+
+
+                    cs += '        public static ButtonColorScheme ' + clrName + " { get; } = new ButtonColorScheme\n";
+                    cs += "        {\n";
+
+                    const styles = [
+                        {
+                            opacity: hover.opacity || btnStyle.opacity,
+                            color: hover.color || btnStyle.color,
+                            backgroundColor: hover.backgroundColor || btnStyle.backgroundColor,
+                            borderTopColor: hover.borderTopColor || btnStyle.borderTopColor,
+                        },
+                        getComputedStyle(active),
+                        getComputedStyle(disabled),
+                        btnStyle
+                    ];
+
+                    for (let i = 0; i < properties.length; i++) {
+                        const style = styles[i];
+                        const op = style.opacity;
+                        const cp = op >= 1 ? '0xff' : ('0x' + Math.round((op + 1) * 255).toString(16).substr(-2));
+                        cs += "            " + properties[i] + " = ButtonColorSchemeState.Create("
+                            + cp + cssColorToInt32(style.color) + ", "
+                            + cp + cssColorToInt32(style.backgroundColor) + ", "
+                            + cp + cssColorToInt32(style.borderTopColor) + "),\n";
+                    }
+                    cs += "        };\n";
+
+                    active.remove();
+                    disabled.remove();
+                    btn.remove();
+                }
+            }
+
+            document.getElementById('output').appendChild(document.createTextNode(cs));
+        }
+    </script>
+</body>
+</html>

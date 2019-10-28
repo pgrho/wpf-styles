@@ -65,18 +65,114 @@ namespace Shipwreck.Wpf.Styles
 
         public static ButtonColorScheme BootstrapPrimary { get; } = new ButtonColorScheme
         {
-            MouseOver = ButtonColorSchemeState.Create(0xffffff, 0x0069d9, 0x0062cc),
-            Pressed = ButtonColorSchemeState.Create(0xffffff, 0x0062cc, 0x005cbf),
-            Disabled = ButtonColorSchemeState.Create(0xffffff, 0x007bff, 0x007bff),
-            Default = ButtonColorSchemeState.Create(0xffffff, 0x00fbff, 0x00fbff)
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff0069d9, 0xff0062cc),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff0062cc, 0xff005cbf),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffffff, 0xa6007bff, 0xa6007bff),
+            Default = ButtonColorSchemeState.Create(0xffffffff, 0xff007bff, 0xff007bff),
+        };
+
+        public static ButtonColorScheme BootstrapOutlinePrimary { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff007bff, 0xff007bff),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff007bff, 0xff007bff),
+            Disabled = ButtonColorSchemeState.Create(0xa6007bff, 0xa6000000, 0xa6007bff),
+            Default = ButtonColorSchemeState.Create(0xff007bff, 0xff000000, 0xff007bff),
         };
 
         public static ButtonColorScheme BootstrapSecondary { get; } = new ButtonColorScheme
         {
-            MouseOver = ButtonColorSchemeState.Create(0xffffff, 0x5a6268, 0x545b62),
-            Pressed = ButtonColorSchemeState.Create(0xffffff, 0x545b62, 0x4e555b),
-            Disabled = ButtonColorSchemeState.Create(0xffffff, 0x6c757d, 0x6c757d),
-            Default = ButtonColorSchemeState.Create(0xffffff, 0x545b62, 0x4e555b)
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff5a6268, 0xff545b62),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff545b62, 0xff4e555b),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffffff, 0xa66c757d, 0xa66c757d),
+            Default = ButtonColorSchemeState.Create(0xffffffff, 0xff6c757d, 0xff6c757d),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineSecondary { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff6c757d, 0xff6c757d),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff6c757d, 0xff6c757d),
+            Disabled = ButtonColorSchemeState.Create(0xa66c757d, 0xa6000000, 0xa66c757d),
+            Default = ButtonColorSchemeState.Create(0xff6c757d, 0xff000000, 0xff6c757d),
+        };
+
+        public static ButtonColorScheme BootstrapSuccess { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff218838, 0xff1e7e34),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff1e7e34, 0xff1c7430),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffffff, 0xa628a745, 0xa628a745),
+            Default = ButtonColorSchemeState.Create(0xffffffff, 0xff28a745, 0xff28a745),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineSuccess { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff28a745, 0xff28a745),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff28a745, 0xff28a745),
+            Disabled = ButtonColorSchemeState.Create(0xa628a745, 0xa6000000, 0xa628a745),
+            Default = ButtonColorSchemeState.Create(0xff28a745, 0xff000000, 0xff28a745),
+        };
+
+        public static ButtonColorScheme BootstrapDanger { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xffc82333, 0xffbd2130),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xffbd2130, 0xffb21f2d),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffffff, 0xa6dc3545, 0xa6dc3545),
+            Default = ButtonColorSchemeState.Create(0xffffffff, 0xffdc3545, 0xffdc3545),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineDanger { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xffdc3545, 0xffdc3545),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xffdc3545, 0xffdc3545),
+            Disabled = ButtonColorSchemeState.Create(0xa6dc3545, 0xa6000000, 0xa6dc3545),
+            Default = ButtonColorSchemeState.Create(0xffdc3545, 0xff000000, 0xffdc3545),
+        };
+
+        public static ButtonColorScheme BootstrapWarning { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xff212529, 0xffe0a800, 0xffd39e00),
+            Pressed = ButtonColorSchemeState.Create(0xff212529, 0xffd39e00, 0xffc69500),
+            Disabled = ButtonColorSchemeState.Create(0xa6212529, 0xa6ffc107, 0xa6ffc107),
+            Default = ButtonColorSchemeState.Create(0xff212529, 0xffffc107, 0xffffc107),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineWarning { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xff212529, 0xffffc107, 0xffffc107),
+            Pressed = ButtonColorSchemeState.Create(0xff212529, 0xffffc107, 0xffffc107),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffc107, 0xa6000000, 0xa6ffc107),
+            Default = ButtonColorSchemeState.Create(0xffffc107, 0xff000000, 0xffffc107),
+        };
+
+        public static ButtonColorScheme BootstrapLight { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xff212529, 0xffe2e6ea, 0xffdae0e5),
+            Pressed = ButtonColorSchemeState.Create(0xff212529, 0xffdae0e5, 0xffd3d9df),
+            Disabled = ButtonColorSchemeState.Create(0xa6212529, 0xa6f8f9fa, 0xa6f8f9fa),
+            Default = ButtonColorSchemeState.Create(0xff212529, 0xfff8f9fa, 0xfff8f9fa),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineLight { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xff212529, 0xfff8f9fa, 0xfff8f9fa),
+            Pressed = ButtonColorSchemeState.Create(0xff212529, 0xfff8f9fa, 0xfff8f9fa),
+            Disabled = ButtonColorSchemeState.Create(0xa6f8f9fa, 0xa6000000, 0xa6f8f9fa),
+            Default = ButtonColorSchemeState.Create(0xfff8f9fa, 0xff000000, 0xfff8f9fa),
+        };
+
+        public static ButtonColorScheme BootstrapDark { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff23272b, 0xff1d2124),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff1d2124, 0xff171a1d),
+            Disabled = ButtonColorSchemeState.Create(0xa6ffffff, 0xa6343a40, 0xa6343a40),
+            Default = ButtonColorSchemeState.Create(0xffffffff, 0xff343a40, 0xff343a40),
+        };
+
+        public static ButtonColorScheme BootstrapOutlineDark { get; } = new ButtonColorScheme
+        {
+            MouseOver = ButtonColorSchemeState.Create(0xffffffff, 0xff343a40, 0xff343a40),
+            Pressed = ButtonColorSchemeState.Create(0xffffffff, 0xff343a40, 0xff343a40),
+            Disabled = ButtonColorSchemeState.Create(0xa6343a40, 0xa6000000, 0xa6343a40),
+            Default = ButtonColorSchemeState.Create(0xff343a40, 0xff000000, 0xff343a40),
         };
 
         #endregion Bootstrap Colors
